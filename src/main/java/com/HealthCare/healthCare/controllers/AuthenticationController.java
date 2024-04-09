@@ -1,5 +1,9 @@
-package com.HealthCare.healthCare.auth;
+package com.HealthCare.healthCare.controllers;
 
+import com.HealthCare.healthCare.dtos.AuthenticationRequest;
+import com.HealthCare.healthCare.dtos.AuthenticationResponse;
+import com.HealthCare.healthCare.services.AuthenticationService;
+import com.HealthCare.healthCare.dtos.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

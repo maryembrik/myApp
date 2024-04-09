@@ -1,9 +1,12 @@
-package com.HealthCare.healthCare.auth;
+package com.HealthCare.healthCare.services;
 
+import com.HealthCare.healthCare.dtos.AuthenticationRequest;
+import com.HealthCare.healthCare.dtos.AuthenticationResponse;
+import com.HealthCare.healthCare.dtos.RegisterRequest;
 import com.HealthCare.healthCare.config.JWTService;
-import com.HealthCare.healthCare.user.Role;
-import com.HealthCare.healthCare.user.User;
-import com.HealthCare.healthCare.user.UserRepository;
+import com.HealthCare.healthCare.entities.Role;
+import com.HealthCare.healthCare.entities.User;
+import com.HealthCare.healthCare.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
