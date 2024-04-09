@@ -1,4 +1,4 @@
-package com.HealthCare.healthCare.demo;
+package com.HealthCare.healthCare.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

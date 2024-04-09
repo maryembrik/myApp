@@ -1,4 +1,4 @@
-package com.HealthCare.healthCare.auth;
+package com.HealthCare.healthCare.dtos;
 
 import lombok.Builder;
 import  lombok.AllArgsConstructor;

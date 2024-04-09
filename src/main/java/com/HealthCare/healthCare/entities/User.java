@@ -1,5 +1,6 @@
-package com.HealthCare.healthCare.user;
+package com.HealthCare.healthCare.entities;
 
+import com.HealthCare.healthCare.entities.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +30,7 @@ public class User implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private  Role role;
+    private Role role;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
