@@ -16,10 +16,13 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
-    private  final UserRepository repository;
+    private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;
+    //private final TokenRepository tokenRepository;
+    //private final EmailService emailService;
+
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstname(request.getFirstname())
@@ -29,6 +32,7 @@ public class AuthenticationService {
                 .role(Role.User)
                 .build();
         repository.save(user);
+        //sendValidationEmail(user);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
 
@@ -47,4 +51,37 @@ public class AuthenticationService {
 
 
     }
+
+
+    /*private void sendValidationEmail(User user) {
+        var newToken = generateAndSaveActivationToken(user);
+
+
+
+    }
+
+    private String generateAndSaveActivationToken(User user) {
+        String generatedToken = generateActivationCode(6);
+        var token = Token.builder()
+                .token(generatedToken)
+                .createdAT(LocalDateTime.now())
+                .expiresAT(LocalDateTime.now().plusMinutes(15))
+                .user(user)
+                .build();
+        tokenRepository.save(token);
+        return generatedToken;
+    }
+
+    private String generateActivationCode(int length) {
+        String characters = "0123456789";
+        StringBuilder codeBuilder = new StringBuilder();
+        SecureRandom secureRandom = new SecureRandom();
+        for (int i = 0; i < length; i++) {
+            int randomIndex = secureRandom.nextInt(characters.length());
+            codeBuilder.append(characters.charAt(randomIndex));
+
+
+        }
+        return codeBuilder.toString();
+    }*/
 }
